@@ -23,3 +23,10 @@
 * Run all cell
 * For the cell under "Taking input Title and Body and Predicting Tags" run the cell and provide input title and question section to predict the tag.
 * Done!
+
+
+### Refrences:
+* https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tagging-1.pdf
+* https://www.researchgate.net/publication/266850100_A_Hybrid_Auto-tagging_System_for_StackOverflow_Forum_Questions
+* https://nlp.stanford.edu/pubs/tagpred-sigir08.pdf
+* http://cs229.stanford.edu/proj2013/SchusterZhuCheng-PredictingTagsforStackOverflowQuestions.pdf

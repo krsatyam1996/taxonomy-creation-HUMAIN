@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Tags Prediction
+</title>
+</head>
+
+<body>
+	<center>
+	<font size="5">
+	<p>Enter Title</p>
+	<input id="title" value="" placeholder="enter Title" cols="40" rows="5" style="width:400px; height:30px;" >
+	
+	<br><br>
+	<p>Enter Body</p>
+	<input id="body" value="" placeholder="enter Body" style="width:600px; height:50px;" >
+	</font>
+	<br><br>
+	<button id="predict_button">PREDICT</button>
+	
+	<br><br><br><br>
+	<p>PREDICTIONS OF TAGS</p>
+	<p>Tags:</p> 
+	<font size="6"><B><span id="tag_prediction" ></span></B></font>
+	</center>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+	
+		$("#predict_button").click(function(event) 
+		{
+			let message = {
+				title: $("#title").val(),
+				body: $("#body").val()
+			}
+			console.log(message);
+			
+			$.post("/predict",JSON.stringify(message), function(response){
+				console.log(response);
+				
+				$("#tag_prediction").text(response[0].name);
+			});
+			
+		});
+		
+	</script>
+	
+	
+</body>
+
+</html>
