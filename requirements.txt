@@ -1,0 +1,13 @@
+gnuicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+scipy
+scikit-learn
+pandas
+re
+nltk
+pickle
+flask
+Flask

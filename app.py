@@ -1,26 +1,14 @@
 import pandas as pd
-import sqlite3
-import csv
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 import re
-import datetime as dt
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.multiclass import OneVsRestClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn import metrics
 from sklearn.metrics import f1_score,precision_score,recall_score
-from sklearn import svm
 from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import GaussianNB
-from datetime import datetime
-from tqdm import tqdm
-import scipy.sparse
 import pickle
 import scipy.sparse as sp
 from flask import Flask, render_template
@@ -114,12 +102,12 @@ tags = tags.split()
 tags = tags[:100]
 print("Tags Loaded!")
 
-with open("model/LR_tfidf_3title_question_code_model.pkl",'rb') as f:
+with open("model/LR_tfidf_3title_question_code_model_s.pkl",'rb') as f:
     model = pickle.load(f)
 print("Model Loaded!")
 
-tf1_vocal = pickle.load(open("model/x_tfidf_train_multilabel_vocal.pickle", 'rb'))
-tf1_idf = pickle.load(open("model/x_tfidf_train_multilabel_idf.pickle", 'rb'))
+tf1_vocal = pickle.load(open("model/x_tfidf_train_multilabel_vocal_s.pickle", 'rb'))
+tf1_idf = pickle.load(open("model/x_tfidf_train_multilabel_idf_s.pickle", 'rb'))
 
 tf1_new = TfidfVectorizer(min_df=0.00009, max_features=400000, tokenizer = lambda x: x.split(), ngram_range=(1,4), vocabulary=tf1_vocal)
 tf1_new._tfidf._idf_diag = sp.spdiags(tf1_idf, diags = 0, m = len(tf1_idf), n = len(tf1_idf))
