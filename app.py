@@ -1,19 +1,12 @@
-import pandas as pd
 import re
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import SGDClassifier
-from sklearn import metrics
-from sklearn.metrics import f1_score,precision_score,recall_score
-from sklearn.linear_model import LogisticRegression
 import pickle
 import scipy.sparse as sp
-from flask import Flask, render_template
-from flask import jsonify
-from flask import request
+from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
 
